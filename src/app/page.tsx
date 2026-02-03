@@ -1,9 +1,9 @@
-import { CryptoCurrencyList } from "@/features/cryptoCurrencies";
+import { CryptocurrencyList } from "@/features/cryptocurrencies";
 
 export default function Home() {
   return (
     <div>
-      <CryptoCurrencyList />
+      <CryptocurrencyList />
     </div>
   );
 }
