@@ -1,8 +1,9 @@
+import { CryptoCurrencyList } from "@/features/cryptoCurrencies";
+
 export default function Home() {
   return (
     <div>
-      <h1>Heyyy</h1>
-      <button className="btn btn-primary">Button</button>
+      <CryptoCurrencyList />
     </div>
   );
 }
