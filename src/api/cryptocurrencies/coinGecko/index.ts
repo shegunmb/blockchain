@@ -12,8 +12,9 @@ export function fetchCryptocurrenciesFromCoinGecko(): Promise<
     throw new Error("COIN_GECKO_API_KEY environment variable is not set");
   }
 
-  const options = {
+  const options: RequestInit = {
     method: "GET",
+    cache: "no-store",
     headers: { x_cg_demo_api_key: COIN_GECKO_API_KEY },
   };
   return fetch(
