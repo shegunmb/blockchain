@@ -5,7 +5,7 @@ import { resolveCryptocurrencies } from "../resolver";
 const COIN_GECKO_BASE_URL = config.coinGeckoBaseUrl;
 const COIN_GECKO_API_KEY: string = process.env.COIN_GECKO_API_KEY || "";
 
-export function fetchCryptoCurrenciesFromCoinGecko(): Promise<
+export function fetchCryptocurrenciesFromCoinGecko(): Promise<
   CryptocurrencyItem[]
 > {
   if (!COIN_GECKO_API_KEY) {

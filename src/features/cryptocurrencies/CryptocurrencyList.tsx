@@ -1,6 +1,6 @@
 import { CryptocurrencyService } from "@/api/cryptocurrencies/service";
 
-export default async function CryptoCurrencyList() {
+export default async function CryptocurrencyList() {
   const cryptoItems = await CryptocurrencyService.fetchAll();
 
   return (
