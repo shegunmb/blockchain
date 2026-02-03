@@ -1,4 +1,8 @@
-export default function CryptoCurrencyList() {
+import { CryptocurrencyService } from "@/api/cryptocurrencies/service";
+
+export default async function CryptoCurrencyList() {
+  const cryptoItems = await CryptocurrencyService.fetchAll();
+
   return (
     <div className="overflow-x-auto rounded-box border border-neutral-300 bg-base-100 m-8 ">
       <table className="table">
@@ -11,12 +15,12 @@ export default function CryptoCurrencyList() {
           </tr>
         </thead>
         <tbody>
-          {data.map((crypto, i) => (
+          {cryptoItems.map((crypto, i) => (
             <tr key={crypto.name}>
               <th>{i + 1}</th>
               <td>{crypto.name}</td>
-              <td>{crypto.price}</td>
-              <td>{crypto.changeTwentyFour}</td>
+              <td>{crypto.priceUSD}</td>
+              <td>{crypto.usd24hChange}</td>
             </tr>
           ))}
         </tbody>
@@ -24,31 +28,3 @@ export default function CryptoCurrencyList() {
     </div>
   );
 }
-
-const data = [
-  {
-    name: "Bitcoin",
-    price: "86.000$",
-    changeTwentyFour: "0.4%",
-  },
-  {
-    name: "Ethereum",
-    price: "8.000$",
-    changeTwentyFour: "0.8%",
-  },
-  {
-    name: "Dogecoin",
-    price: "16.000$",
-    changeTwentyFour: "2.1%",
-  },
-  {
-    name: "Cardano",
-    price: "23.000$",
-    changeTwentyFour: "0.3%",
-  },
-  {
-    name: "Solana",
-    price: "42.000$",
-    changeTwentyFour: "1.1%",
-  },
-];
