@@ -1,13 +1,16 @@
 import { config } from "@config";
-import type { CryptocurrencyItem } from "@/domain/cryptocurrencies/types";
+import type {
+  CryptocurrencyItem,
+  CryptocurrencyName,
+} from "@/domain/cryptocurrencies/types";
 import { resolveCryptocurrencies } from "../resolver";
 
 const COIN_GECKO_BASE_URL = config.coinGeckoBaseUrl;
 const COIN_GECKO_API_KEY: string = process.env.COIN_GECKO_API_KEY || "";
 
-export function fetchCryptocurrenciesFromCoinGecko(): Promise<
-  CryptocurrencyItem[]
-> {
+export function fetchCryptocurrenciesFromCoinGecko(
+  cryptoList: CryptocurrencyName[],
+): Promise<CryptocurrencyItem[]> {
   if (!COIN_GECKO_API_KEY) {
     throw new Error("COIN_GECKO_API_KEY environment variable is not set");
   }
@@ -17,8 +20,10 @@ export function fetchCryptocurrenciesFromCoinGecko(): Promise<
     cache: "no-store",
     headers: { x_cg_demo_api_key: COIN_GECKO_API_KEY },
   };
+
+  const cryptosToFetch = cryptoList.join(",");
   return fetch(
-    `${COIN_GECKO_BASE_URL}/simple/price?vs_currencies=usd&ids=bitcoin,ethereum,dogecoin,cardano,solana&include_24hr_change=true`,
+    `${COIN_GECKO_BASE_URL}/simple/price?vs_currencies=usd&ids=${cryptosToFetch}&include_24hr_change=true&precision=2`,
     options,
   )
     .then((res) => res.json())
