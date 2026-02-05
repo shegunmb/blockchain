@@ -1,7 +1,13 @@
 import { CryptocurrencyService } from "@/api/cryptocurrencies/service";
 
 export default async function CryptocurrencyList() {
-  const cryptoItems = await CryptocurrencyService.fetchAll();
+  const cryptoItems = await CryptocurrencyService.fetchCryptocurrencies([
+    "bitcoin",
+    "ethereum",
+    "cardano",
+    "dogecoin",
+    "solana",
+  ]);
 
   return (
     <div className="overflow-x-auto rounded-box border border-neutral-300 bg-base-100 m-8 ">

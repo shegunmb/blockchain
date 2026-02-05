@@ -1,8 +1,13 @@
-import { CryptocurrencyItem } from "@/domain/cryptocurrencies/types";
+import {
+  CryptocurrencyItem,
+  CryptocurrencyName,
+} from "@/domain/cryptocurrencies/types";
 import { fetchCryptocurrenciesFromCoinGecko } from "./coinGecko";
 
 export class CryptocurrencyService {
-  static async fetchAll(): Promise<CryptocurrencyItem[]> {
-    return fetchCryptocurrenciesFromCoinGecko();
+  static async fetchCryptocurrencies(
+    cryptos: CryptocurrencyName[],
+  ): Promise<CryptocurrencyItem[]> {
+    return fetchCryptocurrenciesFromCoinGecko(cryptos);
   }
 }
