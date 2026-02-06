@@ -1,3 +1,4 @@
+import CoinDetailsCard from "./CoinDetails";
 import CryptocurrencyList from "./CryptocurrencyList";
 
-export { CryptocurrencyList };
+export { CryptocurrencyList, CoinDetailsCard };
