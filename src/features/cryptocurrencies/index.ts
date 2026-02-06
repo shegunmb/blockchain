@@ -1,4 +1,4 @@
 import CoinDetailsCard from "./CoinDetails";
-import CryptocurrencyList from "./CryptocurrencyList";
+import CryptocurrencyList from "./cryptocurrencyList";
 
 export { CryptocurrencyList, CoinDetailsCard };
