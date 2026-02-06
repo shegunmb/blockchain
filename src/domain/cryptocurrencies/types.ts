@@ -15,3 +15,16 @@ export type CryptocurrencyName =
   | "dogecoin"
   | "cardano"
   | "solana";
+
+export type CryptocurrencyChartAPI = {
+  prices: [time: number, price: number][];
+  market_caps: [time: number, price: number][];
+  total_volumes: [time: number, price: number][];
+};
+
+export type CryptocurrencyDetails = {
+  name: CryptocurrencyName;
+  currentPrice: number;
+  minPrice: number;
+  maxPrice: number;
+};
