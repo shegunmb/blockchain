@@ -1,3 +1,4 @@
+import { Link } from "@/components";
 import { CryptocurrencyService } from "@/api/cryptocurrencies/service";
 
 export default async function CryptocurrencyList() {
@@ -24,7 +25,9 @@ export default async function CryptocurrencyList() {
           {cryptoItems.map((crypto, i) => (
             <tr key={crypto.name}>
               <th>{i + 1}</th>
-              <td>{crypto.name}</td>
+              <td>
+                <Link href={`coins/${crypto.name}`}>{crypto.name} </Link>
+              </td>
               <td>{crypto.priceUSD}</td>
               <td>{crypto.usd24hChange}</td>
             </tr>
