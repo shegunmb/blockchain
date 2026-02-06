@@ -1,3 +1,4 @@
 import Link from "./link";
+import LinkButton from "./linkButton";
 
-export { Link };
+export { Link, LinkButton };
